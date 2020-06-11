@@ -1,0 +1,10 @@
+---
+aruba_os: 
+  platform: aruba
+  port: 22
+  connection_options:
+    netmiko:
+      extras:
+        device_type: aruba_os
+juniper: {}
+cisco_ios: {}

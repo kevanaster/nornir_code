@@ -1,0 +1,7 @@
+---
+aruba_lab1:
+    groups:
+        - aruba_os
+    data:
+        site: retail
+        role: local

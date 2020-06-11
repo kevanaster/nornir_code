@@ -1,0 +1,19 @@
+Value IP (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+Value SUBNET (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+Value INTERFACE ((vlan|port-channel|gigabitethernet) (\d+/\d+/\d+|\d+))
+Value DESCRIPTION (\S+)
+Value TRUSTEDVLAN (\S+)
+Value LACPGROUP (\d+)
+Value ALLOWEDVLAN (\S+)
+
+
+
+Start
+  ^\ninterface ${INTERFACE} -> Configuration
+
+Configuration
+  ^\s+ ip address ${IP} ${SUBNET}
+  ^\s+ description "${DESCRIPTION}"
+  ^\s+ trusted vlan ${TRUSTEDVLAN}
+  ^\s+ lacp group ${LACPGROUP} mode
+  ^\s+ switchport trunk allowed vlan ${ALLOWEDVLAN} -> Record Start

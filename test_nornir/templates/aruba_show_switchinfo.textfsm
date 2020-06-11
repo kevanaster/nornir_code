@@ -1,0 +1,14 @@
+Value MODEL (\S*)
+Value VERSION (\S*)
+Value UPTIME (.*)
+Value BOOTPART (\d)
+Value ROLE (local|master)
+Value MASTERIP (\d+\.\d+\.\d+\.\d+)
+
+
+Start
+  ^ArubaOS \(MODEL: ${MODEL}\), Version ${VERSION}
+  ^Switch uptime is ${UPTIME}$$
+  ^Boot Partition: PARTITION ${BOOTPART}
+  ^switchrole:${ROLE}
+  ^masterip:${MASTERIP} -> Record
